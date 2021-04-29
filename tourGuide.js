@@ -1,3 +1,8 @@
+/**
+ * usage:
+ * guideInit([{target:'#t1',guide:'t1 guide...'},{target:'#t2',guide:'t2 guide...'}])
+ */
+
 let PREV = '上一步'
 let NEXT = '下一步'
 let COMPLETE = '完成'
@@ -5,7 +10,7 @@ let guideList = []
 let maskLength = 0
 let maskContainer = document.createElement('div')
 document.body.appendChild(maskContainer)
-let createButton = content => {
+let createButton = (content) => {
   let button = document.createElement('button')
   button.innerHTML = content
   button.style = 'background:none;border:none;color:#409EFF;cursor:pointer;'
@@ -49,21 +54,21 @@ let genGuide = (target, guide, i) => {
   wrapper.appendChild(tips)
   if (i !== 0) {
     let prev = createButton(PREV)
-    prev.onclick = e => {
+    prev.onclick = (e) => {
       guideList[i - 1]()
     }
     tips.appendChild(prev)
   }
   if (i < maskLength - 1) {
     let next = createButton(NEXT)
-    next.onclick = e => {
+    next.onclick = (e) => {
       guideList[i + 1]()
     }
     tips.appendChild(next)
   }
   if (i === maskLength - 1) {
     let complete = createButton(COMPLETE)
-    complete.onclick = e => {
+    complete.onclick = (e) => {
       guideList = []
       maskContainer.remove()
     }
@@ -75,7 +80,7 @@ let genGuide = (target, guide, i) => {
   position: absolute;
   z-index:100000;
   max-width:300px;`
-  
+
   if (tips.clientHeight + HLBottom > bodyHeight) {
     tips.style.bottom = bodyHeight - HLTop + 16 + 'px'
   } else tips.style.top = HLBottom + 16 + 'px'
@@ -85,11 +90,11 @@ let genGuide = (target, guide, i) => {
   else if (HLLeft + tips.clientWidth > bodyWidth) tips.style.right = '16px'
   else tips.style.left = HLLeft + (HLWidth - tips.clientWidth) / 2 + 'px'
 }
-let guide = function(config) {
+let guideInit = function (config) {
   maskLength = config.length
   guideList = config.map((item, i) => {
     return genGuide.bind(null, item.target, item.guide, i)
   })
   guideList[0]()
 }
-export default guide
+export default guideInit

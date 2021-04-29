@@ -1,0 +1,22 @@
+{
+  "name": "lightweight-tour-guide",
+  "version": "1.0.0",
+  "description": "light weight tour guide",
+  "main": "tourGuide.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssshooter/web-tour-guide.git"
+  },
+  "keywords": [
+    "tour"
+  ],
+  "author": "SSShooter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssshooter/web-tour-guide/issues"
+  },
+  "homepage": "https://github.com/ssshooter/web-tour-guide#readme"
+}

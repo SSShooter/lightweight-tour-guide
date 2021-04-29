@@ -12,7 +12,7 @@
       target:'#su',
       guide:'click and search!'
     }]
-    guide(config)
+    guideInit(config)
 ```
 
 ## 已知问题
